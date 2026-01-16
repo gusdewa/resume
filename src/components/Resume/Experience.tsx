@@ -10,7 +10,7 @@ export function Experience({ experience }: ExperienceProps) {
       <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Experience</h2>
       <div className="space-y-6">
         {experience.map((exp, index) => (
-          <div key={index} className="border-l-2 border-blue-200 pl-4">
+          <div key={index} className="experience-item border-l-2 border-blue-200 pl-4">
             <div className="flex justify-between items-start mb-2">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">{exp.title}</h3>

@@ -1,20 +1,8 @@
 import { useEffect, useMemo } from 'react';
-import type { ResumeVariant, PartialResumeVariant } from '../types/resume';
+import type { ResumeVariant } from '../types/resume';
 import { mergeVariant } from '../lib/variants';
 import { defaultVariant } from '../content/variants/default';
-import { alvarezMarsalVariant } from '../content/variants/alvarez-marsal';
-
-interface VariantConfig {
-  name: string;
-  override: PartialResumeVariant;
-}
-
-const VARIANTS: Record<string, VariantConfig> = {
-  'alvarez-marsal': {
-    name: 'Alvarez & Marsal',
-    override: alvarezMarsalVariant,
-  },
-};
+import { getVariantConfig } from '../lib/variantMapping';
 
 export function useVariant(): ResumeVariant {
   // Get the variant from URL query parameter
@@ -25,11 +13,15 @@ export function useVariant(): ResumeVariant {
 
   // Get the variant configuration
   const variant = useMemo(() => {
-    if (!variantParam || !VARIANTS[variantParam]) {
+    if (!variantParam) {
       return defaultVariant;
     }
 
-    const config = VARIANTS[variantParam];
+    const config = getVariantConfig(variantParam);
+    if (!config) {
+      return defaultVariant;
+    }
+
     return mergeVariant(defaultVariant, config.override);
   }, [variantParam]);
 

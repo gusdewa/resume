@@ -10,7 +10,7 @@ export function Education({ education }: EducationProps) {
       <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Education</h2>
       <div className="space-y-4">
         {education.map((edu, index) => (
-          <div key={index} className="border-l-2 border-green-200 pl-4">
+          <div key={index} className="education-item border-l-2 border-green-200 pl-4">
             <div className="flex justify-between items-start mb-1">
               <div>
                 <h3 className="text-base font-semibold text-gray-900">{edu.institution}</h3>

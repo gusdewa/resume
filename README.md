@@ -5,13 +5,17 @@ A modern, maintainable resume site built with Vite, React, TypeScript, and Tailw
 ## 🚀 Live Sites
 
 - **Default Resume**: https://gusdewa.github.io/resume/
-- **Alvarez & Marsal Variant**: https://gusdewa.github.io/resume/?for=alvarez-marsal
+- **Alvarez & Marsal Variant**: https://gusdewa.github.io/resume/?for=a8f3c2d1-9e4b-4a7c-8d1f-2e5b6c7a8d9e
+
+> **Note**: Variants use UUID-based routing for privacy. The UUID in the URL makes it less obvious which specific variant is being viewed. Legacy URLs like `?for=alvarez-marsal` are still supported for backwards compatibility.
 
 ## 📋 Features
 
+- **Client-Side PDF Generation**: Download PDF button with optimized PDF layout using html2pdf.js
 - **Type-Safe Content Management**: TypeScript-based content with complete type safety
-- **Multiple Variants**: Support for different resume versions using query parameters
-- **Print-Optimized**: Designed for PDF export and professional printing
+- **Multiple Variants**: Support for different resume versions using UUID-based query parameters
+- **Privacy-First Routing**: UUID-based URLs make it less obvious which variant is being viewed
+- **Print-Optimized**: Designed for professional printing and PDF export
 - **Auto-Deploy**: GitHub Actions CI/CD pipeline for automatic deployment
 - **Modern Stack**: Built with latest versions of Vite 6, React 18, TypeScript 5, and Tailwind CSS 4
 
@@ -98,8 +102,9 @@ Edit the specific variant file (e.g., `src/content/variants/alvarez-marsal.ts`) 
 
 1. Create a new file in `src/content/variants/` (e.g., `new-variant.ts`)
 2. Define your variant overrides using the `PartialResumeVariant` type
-3. Register the variant in `src/hooks/useVariant.ts` in the `VARIANTS` map
-4. Access your variant at `?for=new-variant`
+3. Generate a UUID for your variant (use any UUID generator)
+4. Register the variant in `src/lib/variantMapping.ts` in the `VARIANT_CONFIGS` array
+5. Access your variant at `?for=your-uuid`
 
 Example:
 
@@ -121,24 +126,48 @@ export const newVariant: PartialResumeVariant = {
 ```
 
 ```typescript
-// src/hooks/useVariant.ts
+// src/lib/variantMapping.ts
 import { newVariant } from '../content/variants/new-variant';
 
-const VARIANTS: Record<string, VariantConfig> = {
-  'alvarez-marsal': {
+export const VARIANT_CONFIGS: VariantConfig[] = [
+  {
+    id: 'a8f3c2d1-9e4b-4a7c-8d1f-2e5b6c7a8d9e', // Existing variant
     name: 'Alvarez & Marsal',
     override: alvarezMarsalVariant,
+    legacyIds: ['alvarez-marsal'],
   },
-  'new-variant': {
+  {
+    id: 'f1e2d3c4-b5a6-4978-8869-7a6b5c4d3e2f', // Generate a new UUID
     name: 'New Variant',
     override: newVariant,
+    legacyIds: ['new-variant'], // Optional: support legacy URLs
   },
-};
+];
 ```
 
-## 🖨️ Printing and PDF Export
+**UUID Privacy**: Using UUIDs in URLs makes it less obvious which specific variant is being viewed. When someone receives a link like `?for=f1e2d3c4-b5a6-4978-8869-7a6b5c4d3e2f`, they won't immediately know it's the "New Variant" version.
 
-The site is optimized for printing and PDF export:
+## 📥 Downloading PDF
+
+### One-Click PDF Download (Recommended)
+
+The site includes a floating "Download PDF" button in the bottom-right corner:
+
+1. Open your resume variant in the browser
+2. Click the **"Download PDF"** button
+3. Wait a few seconds while the PDF is generated
+4. The PDF will automatically download to your device
+
+Features of the generated PDF:
+- Optimized layout specifically for PDF viewing
+- Professional letter size (8.5" x 11")
+- High-quality rendering (2x scale)
+- Proper page breaks to avoid splitting sections awkwardly
+- Automatic filename based on variant (e.g., `alvarez-marsal-resume.pdf`)
+
+### Alternative: Browser Print
+
+You can also use the browser's native print function:
 
 1. Open the resume in your browser
 2. Use browser print function (Cmd/Ctrl + P)
@@ -181,7 +210,17 @@ The GitHub Actions workflow will automatically:
 
 - **Repository**: https://github.com/gusdewa/resume
 - **Live Site**: https://gusdewa.github.io/resume/
-- **With Variant**: https://gusdewa.github.io/resume/?for=variant-name
+- **UUID Variant**: https://gusdewa.github.io/resume/?for=uuid-here
+- **Legacy Support**: https://gusdewa.github.io/resume/?for=variant-name (still works for backwards compatibility)
+
+## 🔒 Privacy & Sharing
+
+The site uses UUID-based routing for variants to provide privacy:
+
+- **Default behavior**: Share URLs with UUIDs (e.g., `?for=a8f3c2d1-9e4b-4a7c-8d1f-2e5b6c7a8d9e`)
+- **Benefit**: Recipients can't immediately tell which variant they're viewing
+- **Legacy support**: Old URLs with readable names (e.g., `?for=alvarez-marsal`) still work
+- **Recommendation**: When sharing with specific companies, use the UUID format
 
 ## 📄 License
 
