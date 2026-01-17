@@ -22,28 +22,15 @@ export function DownloadPDF({ fileName = 'resume.pdf', targetId = 'resume-conten
         return;
       }
 
-      // Clone the element to avoid modifying the original
-      const clone = element.cloneNode(true) as HTMLElement;
-
-      // Apply PDF-specific styling to the clone
-      clone.style.padding = '20px';
-      clone.style.backgroundColor = 'white';
-
-      // Hide the download button in the PDF
-      const downloadButton = clone.querySelector('.no-pdf');
-      if (downloadButton) {
-        (downloadButton as HTMLElement).style.display = 'none';
-      }
-
-      // Configure PDF options optimized for resume
+      // Configure PDF options optimized for a PDF-specific layout
       const opt = {
-        margin: [10, 10, 10, 10] as [number, number, number, number], // top, right, bottom, left in mm
+        margin: 0,
         filename: fileName,
         image: { type: 'jpeg' as const, quality: 0.98 },
         html2canvas: {
           scale: 2,
           useCORS: true,
-          letterRendering: true,
+          backgroundColor: '#ffffff',
           logging: false,
         },
         jsPDF: {
@@ -52,15 +39,14 @@ export function DownloadPDF({ fileName = 'resume.pdf', targetId = 'resume-conten
           orientation: 'portrait' as const,
         },
         pagebreak: {
-          mode: ['avoid-all', 'css', 'legacy'],
-          before: '.page-break-before',
-          after: '.page-break-after',
-          avoid: ['h1', 'h2', 'h3', '.experience-item', '.education-item']
+          mode: ['css', 'avoid-all', 'legacy'],
+          before: '.pdf-page-break',
+          avoid: ['.pdf-section', '.pdf-item']
         },
       };
 
       // Generate PDF
-      await html2pdf().set(opt).from(clone).save();
+      await html2pdf().set(opt).from(element).save();
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('An error occurred while generating the PDF. Please try again.');

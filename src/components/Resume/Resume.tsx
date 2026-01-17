@@ -4,6 +4,7 @@ import { Header } from './Header';
 import { Experience } from './Experience';
 import { Education } from './Education';
 import { Skills } from './Skills';
+import { PdfResume } from './PdfResume';
 
 export function Resume() {
   const variant = useVariant();
@@ -30,7 +31,8 @@ export function Resume() {
         </div>
       </div>
 
-      <DownloadPDF fileName={fileName} targetId="resume-content" />
+      <PdfResume variant={variant} />
+      <DownloadPDF fileName={fileName} targetId="pdf-resume" />
     </>
   );
 }
