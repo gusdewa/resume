@@ -105,13 +105,13 @@
 .pdf-resume {
   width: 8.5in;
   min-height: 11in;
-  padding: 0.45in 0.5in;
+  padding: 0.55in 0.6in;
   box-sizing: border-box;
   background: #ffffff;
   color: #111111;
   font-family: "Georgia", "Times New Roman", serif;
   font-size: 10.5pt;
-  line-height: 1.25;
+  line-height: 1.28;
 }
 
 .pdf-resume * {
@@ -175,7 +175,7 @@
 }
 
 .pdf-item {
-  margin-bottom: 0.12in;
+  margin-bottom: 0.16in;
   break-inside: avoid;
 }
 
@@ -206,7 +206,7 @@
 .pdf-meta {
   font-size: 9pt;
   color: #555555;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .pdf-description {
@@ -217,12 +217,13 @@
 }
 
 .pdf-bullets {
-  margin: 4px 0 0 14px;
-  padding: 0;
+  margin: 6px 0 0 0;
+  padding-left: 16px;
+  list-style-position: outside;
 }
 
 .pdf-bullets li {
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .pdf-tech {

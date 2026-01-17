@@ -7,6 +7,14 @@ interface PdfResumeProps {
 export function PdfResume({ variant }: PdfResumeProps) {
   const { header, summary, experience, education, skills, certifications } = variant;
 
+  const getTopHighlights = (exp: ResumeVariant['experience'][number]) => {
+    const highlights = exp.highlights || [];
+    if (exp.description) {
+      return [exp.description, ...highlights].slice(0, 3);
+    }
+    return highlights.slice(0, 3);
+  };
+
   const contactLines = [
     header.contact.email && {
       label: header.contact.email,
@@ -69,6 +77,10 @@ export function PdfResume({ variant }: PdfResumeProps) {
           <h2 className="pdf-section-title">Experience</h2>
           {experience.map((exp, index) => (
             <div key={`${exp.company}-${index}`} className="pdf-item">
+              {(() => {
+                const topHighlights = getTopHighlights(exp);
+                return (
+                  <>
               <div className="pdf-row">
                 <div>
                   <div className="pdf-role">{exp.title}</div>
@@ -77,10 +89,9 @@ export function PdfResume({ variant }: PdfResumeProps) {
                 <div className="pdf-period">{exp.period}</div>
               </div>
               <div className="pdf-meta">{exp.location}</div>
-              {exp.description && <div className="pdf-description">{exp.description}</div>}
-              {exp.highlights.length > 0 && (
+              {topHighlights.length > 0 && (
                 <ul className="pdf-bullets">
-                  {exp.highlights.map((highlight, idx) => (
+                  {topHighlights.map((highlight, idx) => (
                     <li key={`${exp.company}-highlight-${idx}`}>{highlight}</li>
                   ))}
                 </ul>
@@ -90,6 +101,9 @@ export function PdfResume({ variant }: PdfResumeProps) {
                   <span>Tech:</span> {exp.technologies.join(', ')}
                 </div>
               )}
+                  </>
+                );
+              })()}
             </div>
           ))}
         </section>
