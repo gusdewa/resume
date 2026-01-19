@@ -4,14 +4,14 @@ export const alvarezMarsalVariant: PartialResumeVariant = {
   metadata: {
     variantName: 'alvarez-marsal',
     title: 'Rahadian Dewandono - Resume (Alvarez & Marsal)',
-    description: 'Technology leader focused on transaction ready IT, carve out execution, and value creation delivery',
+    description: 'Technology leader delivering value creation through modernization, carve-outs, and cost optimization',
   },
   header: {
-    title: 'Technology leader focused on transaction ready IT, carve out execution, and value creation delivery',
+    title: 'Technology leader delivering value creation through modernization, carve-outs, and cost optimization',
   },
-  summary: `I specialize in bridging business strategy with hands-on technology to deliver measurable results. With experience across tech consulting, startups, and digital transformation for Fortune 500 companies, I build practical, transaction-ready solutions that drive business growth and enable investor-grade clarity.
+  summary: `Technology leader focused on value creation through digital and technology services. I translate strategy into execution across technology modernization, IT cost optimization, operating model design, and risk governance, with experience in consulting, enterprise transformation, and high-growth product environments.
 
-At Sinarmas' AI Center of Excellence, I focus on solving complex challenges and accelerating transformation through AI-driven decision systems and agentic workflows. I am committed to building high-performing teams, delivering solutions that are simple, sustainable, and high-impact, with a track record of successful carve-out execution, run-rate baselining, and cost optimization initiatives.
+At Sinarmas' AI Center of Excellence, I lead initiatives that improve operating performance through AI-driven decision systems, clearer run-rate baselines, and measurable ROI. I deliver transaction-ready capabilities that support carve-outs and integration planning, and build execution models that balance speed, cost, and resilience.
 
 Certified in cloud computing, DevOps, and agile leadership, with credentials from top hyperscalers and global executive programs.`,
   experience: [
@@ -21,11 +21,11 @@ Certified in cloud computing, DevOps, and agile leadership, with credentials fro
       location: 'Jakarta Metropolitan Area',
       period: 'May 2024 - Present',
       highlights: [
-        'Leading strategic technology initiatives across the enterprise to drive value creation and operational excellence',
-        'Help Sinarmas business units achieve transaction ready IT and accelerate value creation through AI-driven transformation, bridging AI and digital technologies with business goals for investor-grade clarity',
-        'Integrated agentic AI workflows into enterprise operations by designing and deploying a Command Center platform for plantation management across 537K hectares, providing investor-grade visibility into field operations, enterprise systems, and real-time decision support with measurable ROI',
-        'Built scalable GenAI applications that drive faster issue resolution and cost optimization, using retrieval-augmented generation (RAG) and natural language interfaces to simplify user interaction with complex backend systems while establishing clear run-rate baselines',
-        'Led group-wide AI upskilling and knowledge-sharing initiatives, training ~150 employees in AI and digital capabilities, establishing enterprise risk identification frameworks, and fostering collaboration on emerging technologies and cybersecurity',
+        'Lead enterprise technology initiatives that deliver value creation, modernization, and operating model improvements across business units',
+        'Enable transaction-ready IT by aligning AI and digital capabilities with business goals, creating clear run-rate baselines and measurable ROI',
+        'Designed and deployed a Command Center platform for plantation operations across 537K hectares, improving governance, visibility, and real-time decision support',
+        'Delivered GenAI applications that reduced issue resolution time and improved cost performance through RAG and natural language interfaces',
+        'Led AI upskilling for ~150 employees and established risk identification practices across emerging tech and cybersecurity',
       ],
       technologies: ['React', 'Python', 'LangChain', 'LangGraph', 'MCP', 'LLaMA', 'PGVector', 'Azure'],
     },
@@ -35,12 +35,11 @@ Certified in cloud computing, DevOps, and agile leadership, with credentials fro
       location: 'Jakarta, Indonesia',
       period: 'January 2022 - May 2024',
       highlights: [
-        'Designed transaction-ready platform architecture with 25 microservices using Go and NodeJS, supporting 500K+ MAU with clear separation of concerns and investor-grade documentation',
-        'Led zero-trust security initiatives and bug bounty program, establishing enterprise risk identification framework and fortifying user data protection with measurable security metrics',
-        'Integrated GenAI technologies (Pinecone, LangChain, OpenAI), delivering quantifiable cost optimization of $2,500/month with documented run-rate improvements',
-        'Enhanced system stability and cost-effectiveness through strategic upgrades, establishing clear baseline metrics and delivering value creation through operational efficiency',
-        'Sustained team performance through resource-constrained phases, driving faster profitability via adaptive sprints, streamlined roadmaps, and disciplined cost management',
-        'Streamlined delivery with DevOps tools (Terraform, Kubernetes, GCP) and QA automation, reducing time-to-market and establishing clear delivery baselines',
+        'Built transaction-ready architecture with 25 microservices using Go and NodeJS, supporting 500K+ MAU with documented controls and scalability',
+        'Implemented zero-trust security and a bug bounty program to strengthen risk posture and user data protection',
+        'Integrated GenAI technologies (Pinecone, LangChain, OpenAI) to optimize costs by $2,500/month with tracked run-rate improvements',
+        'Modernized platform reliability and performance through targeted upgrades and operational baselining',
+        'Drove cost discipline and delivery speed through adaptive roadmaps, DevOps automation, and QA frameworks',
       ],
       technologies: ['Go', 'NodeJS', 'Microservices', 'Kubernetes', 'GCP', 'Terraform', 'Pinecone', 'LangChain', 'OpenAI'],
     },
@@ -51,9 +50,9 @@ Certified in cloud computing, DevOps, and agile leadership, with credentials fro
       period: 'July 2021 - 2022',
       description: 'As CTO of Fita (was a BU under Telkomsel), I led critical carve-out execution and transaction ready IT initiatives:',
       highlights: [
-        'Architected transaction-ready, future-proof platform for Fita\'s fitness and wellness business with investor-grade documentation and clear technical due diligence materials',
-        'Expanded Engineering Talent: Tripled the engineering team in 4 months with disciplined hiring, establishing clear organizational structure and capabilities baseline',
-        'Led Strategic Spin-Off and Carve-Out Execution: Orchestrated complete engineering and IT separation during Fita\'s spin-off from Telkomsel, ensuring operational continuity, establishing standalone IT capabilities, and delivering investor-ready infrastructure',
+        'Defined the target-state architecture and due diligence materials for a transaction-ready platform',
+        'Scaled the engineering organization rapidly, establishing a clear operating model and capability baseline',
+        'Led IT separation planning and execution for the carve-out, ensuring Day 1 readiness and clean TSA exit paths',
       ],
     },
     {
@@ -62,14 +61,13 @@ Certified in cloud computing, DevOps, and agile leadership, with credentials fro
       location: 'Jakarta, Indonesia',
       period: 'November 2017 - July 2021',
       highlights: [
-        'Provided visionary architecture and governance for advanced credit scoring platform ecosystem, establishing investor-grade controls and compliance frameworks aligned with Indonesian regulations',
-        'Formulated and enforced robust data security protocols with clear audit trails for handling highly sensitive customer data on hybrid cloud infrastructure, establishing enterprise risk identification and mitigation frameworks',
-        'Directed engineering teams in design and deployment of transaction-ready, scalable platforms handling 20M+ monthly users using Kubernetes and microservices, with documented run-rate baselines and cost structures',
-        'Strategically aligned API integrations with key telco partnerships in South East Asia, enabling value creation through platform synergies',
-        'Championed DevOps methodologies through CI/CD pipelines, delivering measurable acceleration in development cycles and establishing clear delivery baselines',
-        'Engineered scalable backend infrastructure for B2C telco apps with 20M+ MAU, establishing clear capacity baselines and cost optimization frameworks',
-        'Implemented A/B tests and utilized analytics to establish run-rate performance baselines and optimize application parameters for measurable user engagement improvements',
-        'Led Data Engineering and Data Science teams in developing predictive maintenance models for mining operations, delivering quantifiable cost savings through optimized maintenance schedules',
+        'Shaped platform architecture and governance for credit scoring ecosystems, aligning controls with regulatory and investor requirements',
+        'Established security and risk protocols for sensitive data on hybrid cloud, including audit-ready governance',
+        'Led design and deployment of scalable platforms serving 20M+ monthly users with documented run-rate and cost structures',
+        'Drove API integration strategy across telco partnerships to unlock cross-platform value creation',
+        'Implemented DevOps and delivery baselines to improve speed, reliability, and cost transparency',
+        'Optimized B2C telco infrastructure and performance using analytics and experimentation',
+        'Led data engineering and data science teams delivering predictive maintenance models with measurable savings',
       ],
       technologies: [
         'Kubernetes',
