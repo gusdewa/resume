@@ -24,7 +24,7 @@
 @media print {
   @page {
     size: letter;
-    margin: 0.5in;
+    margin: 0;
   }
 
   * {
@@ -34,6 +34,7 @@
 
   body {
     background: white;
+    margin: 0;
   }
 
   /* Hide elements that shouldn't print */
@@ -91,6 +92,24 @@
   a[href^="http"]:after {
     content: none;
   }
+
+  /* Print the McKinsey-style PDF layout instead of the on-screen card. */
+  #resume-content {
+    display: none !important;
+  }
+
+  .pdf-container {
+    position: static;
+    left: auto;
+    top: auto;
+    width: auto;
+    display: block;
+  }
+
+  .pdf-resume {
+    width: auto;
+    min-height: auto;
+  }
 }
 
 /* PDF-specific layout (used by html2pdf/html2canvas). */
@@ -109,9 +128,9 @@
   box-sizing: border-box;
   background: #ffffff;
   color: #111111;
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: "Times New Roman", "Georgia", serif;
   font-size: 10.5pt;
-  line-height: 1.28;
+  line-height: 1.25;
 }
 
 .pdf-resume * {
@@ -119,54 +138,60 @@
 }
 
 .pdf-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   padding-bottom: 0.12in;
   margin-bottom: 0.18in;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid #111111;
+  text-align: center;
 }
 
 .pdf-name {
   margin: 0;
-  font-size: 18pt;
+  font-size: 17pt;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
 .pdf-title {
-  margin-top: 4px;
-  font-size: 10.5pt;
+  margin-top: 2px;
+  font-size: 10pt;
   font-weight: 600;
-  color: #333333;
+  color: #111111;
 }
 
-.pdf-contact {
+.pdf-contact-line {
+  margin-top: 6px;
   font-size: 9pt;
-  text-align: right;
-  line-height: 1.3;
-  color: #333333;
+  line-height: 1.2;
+  color: #111111;
 }
 
-.pdf-contact a {
+.pdf-contact-item {
+  white-space: nowrap;
+}
+
+.pdf-contact-sep {
+  color: #111111;
+}
+
+.pdf-contact-line a {
   color: inherit;
   text-decoration: none;
 }
 
 .pdf-section {
-  margin-bottom: 0.18in;
+  margin-bottom: 0.16in;
   break-inside: avoid;
 }
 
 .pdf-section-title {
-  margin: 0 0 6px 0;
+  margin: 0 0 4px 0;
   font-size: 9.5pt;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #1f3b5d;
-  border-bottom: 1px solid #c9d4e3;
-  padding-bottom: 3px;
+  letter-spacing: 0.1em;
+  color: #111111;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 2px;
 }
 
 .pdf-summary {
@@ -175,7 +200,7 @@
 }
 
 .pdf-item {
-  margin-bottom: 0.16in;
+  margin-bottom: 0.14in;
   break-inside: avoid;
 }
 
@@ -192,44 +217,45 @@
 }
 
 .pdf-company {
-  font-size: 9.8pt;
+  font-size: 9.6pt;
   font-weight: 600;
-  color: #333333;
+  color: #111111;
+  margin-top: 2px;
 }
 
 .pdf-period {
   font-size: 9pt;
-  color: #555555;
+  color: #111111;
   white-space: nowrap;
 }
 
 .pdf-meta {
   font-size: 9pt;
-  color: #555555;
-  margin-top: 3px;
+  color: #111111;
+  margin-top: 2px;
 }
 
 .pdf-description {
   margin-top: 3px;
   font-size: 9.3pt;
   font-style: italic;
-  color: #444444;
+  color: #111111;
 }
 
 .pdf-bullets {
-  margin: 6px 0 0 0;
-  padding-left: 16px;
+  margin: 4px 0 0 0;
+  padding-left: 14px;
   list-style-position: outside;
 }
 
 .pdf-bullets li {
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
 .pdf-tech {
   margin-top: 4px;
   font-size: 9pt;
-  color: #333333;
+  color: #111111;
 }
 
 .pdf-tech span {
@@ -239,7 +265,7 @@
 .pdf-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px 14px;
+  gap: 4px 12px;
 }
 
 .pdf-skill-category {
@@ -249,13 +275,13 @@
 .pdf-skill-title {
   font-size: 9pt;
   font-weight: 600;
-  color: #333333;
-  margin-bottom: 2px;
+  color: #111111;
+  margin-bottom: 1px;
 }
 
 .pdf-skill-list {
   font-size: 9pt;
-  color: #444444;
+  color: #111111;
 }
 
 .pdf-cert-name {
@@ -263,5 +289,5 @@
 }
 
 .pdf-cert-issuer {
-  color: #555555;
+  color: #111111;
 }

@@ -51,20 +51,21 @@ export function PdfResume({ variant }: PdfResumeProps) {
     <div className="pdf-container" aria-hidden="true">
       <div id="pdf-resume" className="pdf-resume">
         <header className="pdf-header">
-          <div>
+          <div className="pdf-header-main">
             <h1 className="pdf-name">{header.name}</h1>
             <div className="pdf-title">{header.title}</div>
-          </div>
-          <div className="pdf-contact">
-            {contactLines.map((item, index) => (
-              <div key={`${item.label}-${index}`}>
-                {item.href ? (
-                  <a href={item.href}>{item.label}</a>
-                ) : (
-                  <span>{item.label}</span>
-                )}
-              </div>
-            ))}
+            <div className="pdf-contact-line">
+              {contactLines.map((item, index) => (
+                <span key={`${item.label}-${index}`} className="pdf-contact-item">
+                  {item.href ? (
+                    <a href={item.href}>{item.label}</a>
+                  ) : (
+                    <span>{item.label}</span>
+                  )}
+                  {index < contactLines.length - 1 && <span className="pdf-contact-sep"> | </span>}
+                </span>
+              ))}
+            </div>
           </div>
         </header>
 
@@ -82,10 +83,7 @@ export function PdfResume({ variant }: PdfResumeProps) {
                 return (
                   <>
               <div className="pdf-row">
-                <div>
-                  <div className="pdf-role">{exp.title}</div>
-                  <div className="pdf-company">{exp.company}</div>
-                </div>
+                <div className="pdf-role">{exp.title} - {exp.company}</div>
                 <div className="pdf-period">{exp.period}</div>
               </div>
               <div className="pdf-meta">{exp.location}</div>
@@ -113,14 +111,12 @@ export function PdfResume({ variant }: PdfResumeProps) {
           {education.map((edu, index) => (
             <div key={`${edu.institution}-${index}`} className="pdf-item">
               <div className="pdf-row">
-                <div>
-                  <div className="pdf-role">{edu.institution}</div>
-                  <div className="pdf-company">
-                    {edu.degree}
-                    {edu.field ? `, ${edu.field}` : ''}
-                  </div>
-                </div>
+                <div className="pdf-role">{edu.institution}</div>
                 <div className="pdf-period">{edu.period}</div>
+              </div>
+              <div className="pdf-company">
+                {edu.degree}
+                {edu.field ? `, ${edu.field}` : ''}
               </div>
               <div className="pdf-meta">{edu.location}</div>
               {edu.details && edu.details.length > 0 && (
