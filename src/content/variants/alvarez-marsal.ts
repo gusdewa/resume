@@ -86,7 +86,7 @@ Certified in cloud computing, DevOps, and agile leadership, with credentials fro
       company: 'Various Digital Product Companies',
       title: 'Product Engineer',
       location: 'Jakarta, Indonesia',
-      period: 'Before 2017',
+      period: '2013 - 2017',
       highlights: [
         'Built and shipped consumer-facing digital products across web and mobile, partnering with product teams to translate business goals into measurable releases',
         'Delivered reliable backend services and integrations that improved performance, stability, and user experience',
