@@ -10,7 +10,7 @@ export const defaultVariant: ResumeVariant = {
     name: 'Rahadian Dewandono',
     title: 'Solution Architect | Tech Advisor | Ex-McKinsey | Ex-CTO Startup',
     contact: {
-      email: 'gusdewa@gmail.com',
+      email: 'rahadian.dewandono@gmail.com',
       location: 'Jakarta Metropolitan Area',
       linkedin: 'linkedin.com/in/rdewa',
     },
