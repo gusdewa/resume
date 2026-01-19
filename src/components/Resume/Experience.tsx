@@ -19,16 +19,20 @@ export function Experience({ experience }: ExperienceProps) {
               <span className="text-sm text-gray-500 whitespace-nowrap ml-4">{exp.period}</span>
             </div>
             <p className="text-sm text-gray-600 mb-2">{exp.location}</p>
-            {exp.description && (
-              <p className="text-sm text-gray-700 mb-3 italic">{exp.description}</p>
-            )}
-            {exp.highlights && exp.highlights.length > 0 && (
-              <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700">
-                {exp.highlights.map((highlight, idx) => (
-                  <li key={idx}>{highlight}</li>
-                ))}
-              </ul>
-            )}
+            {(() => {
+              const bullets = [
+                ...(exp.description ? [exp.description] : []),
+                ...(exp.highlights ?? [])
+              ];
+
+              return bullets.length > 0 ? (
+                <ul className="list-disc list-outside ml-5 space-y-2 text-sm text-gray-700">
+                  {bullets.map((highlight, idx) => (
+                    <li key={idx}>{highlight}</li>
+                  ))}
+                </ul>
+              ) : null;
+            })()}
             {exp.technologies && exp.technologies.length > 0 && (
               <div className="mt-3 flex flex-wrap gap-2">
                 {exp.technologies.map((tech, idx) => (
