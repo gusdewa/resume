@@ -68,8 +68,8 @@
   }
 
   section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    page-break-inside: auto;
+    break-inside: auto;
   }
 
   /* Better text rendering for print */
@@ -124,7 +124,7 @@
 .pdf-resume {
   width: 8.5in;
   min-height: 11in;
-  padding: 0.55in 0.6in;
+  padding: 0.75in 0.65in 0.6in;
   box-sizing: border-box;
   background: #ffffff;
   color: #111111;
@@ -181,7 +181,7 @@
 
 .pdf-section {
   margin-bottom: 0.16in;
-  break-inside: avoid;
+  break-inside: auto;
 }
 
 .pdf-section-title {

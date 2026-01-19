@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import html2pdf from 'html2pdf.js';
 
 interface DownloadPDFProps {
   fileName?: string;
@@ -11,6 +10,7 @@ export function DownloadPDF({ fileName = 'resume.pdf', targetId = 'resume-conten
 
   const handleDownload = async () => {
     setIsGenerating(true);
+    const previousTitle = document.title;
 
     try {
       const element = document.getElementById(targetId);
@@ -22,35 +22,13 @@ export function DownloadPDF({ fileName = 'resume.pdf', targetId = 'resume-conten
         return;
       }
 
-      // Configure PDF options optimized for a PDF-specific layout
-      const opt = {
-        margin: 0,
-        filename: fileName,
-        image: { type: 'jpeg' as const, quality: 0.98 },
-        html2canvas: {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: '#ffffff',
-          logging: false,
-        },
-        jsPDF: {
-          unit: 'mm',
-          format: 'letter', // 8.5 x 11 inches
-          orientation: 'portrait' as const,
-        },
-        pagebreak: {
-          mode: ['css', 'avoid-all', 'legacy'],
-          before: '.pdf-page-break',
-          avoid: ['.pdf-section', '.pdf-item']
-        },
-      };
-
-      // Generate PDF
-      await html2pdf().set(opt).from(element).save();
+      document.title = fileName.replace(/\.pdf$/i, '');
+      window.print();
     } catch (error) {
       console.error('Error generating PDF:', error);
       alert('An error occurred while generating the PDF. Please try again.');
     } finally {
+      document.title = previousTitle;
       setIsGenerating(false);
     }
   };
@@ -60,7 +38,7 @@ export function DownloadPDF({ fileName = 'resume.pdf', targetId = 'resume-conten
       onClick={handleDownload}
       disabled={isGenerating}
       className="no-pdf fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium px-6 py-3 rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2 print:hidden"
-      title="Download as PDF"
+      title="Save as PDF"
     >
       {isGenerating ? (
         <>
